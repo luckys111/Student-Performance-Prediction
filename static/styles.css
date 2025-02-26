@@ -1,28 +1,57 @@
+/* Body and overall page styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #f4f4f4, #c6e3e8);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    animation: gradientAnimation 8s ease infinite; /* Gradient animation */
 }
 
+/* Animation for the gradient background */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #f4f4f4, #c6e3e8);
+    }
+    50% {
+        background: linear-gradient(135deg, #a8d0e6, #f1f1f1);
+    }
+    100% {
+        background: linear-gradient(135deg, #f4f4f4, #c6e3e8);
+    }
+}
+
+/* Container for the form */
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Hover effect to make the container pop */
+.container:hover {
+    transform: scale(1.05);
+}
+
+/* Title */
 h1 {
-    text-align: center; /* Aligning the heading to the left */
-    margin-bottom: 20px;
-    font-size: 24px; /* Optional: adjust the size if needed */
+    text-align: center;
+    margin-bottom: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
+/* Form styling */
 form {
     display: flex;
     flex-direction: column;
@@ -31,29 +60,75 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
+    color: #555;
 }
 
 select, input {
-    margin-bottom: 15px;
-    padding: 8px;
+    margin-bottom: 5px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
+/* Focus effect on select/input fields */
+select:focus, input:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+/* Button styling */
 button {
-    padding: 10px;
+    padding: 12px;
     background-color: #28a745;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+/* Hover effect for the button */
 button:hover {
     background-color: #218838;
 }
 
+/* Adding a soft fade-in effect for the prediction text */
 .prediction {
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
 }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animating the input container's appearance */
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.container {
+    animation: popIn 0.5s ease-out;
+}
+
